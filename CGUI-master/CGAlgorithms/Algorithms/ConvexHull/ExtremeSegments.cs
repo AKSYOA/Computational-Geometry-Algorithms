@@ -11,9 +11,42 @@ namespace CGAlgorithms.Algorithms.ConvexHull
     {
         public override void Run(List<Point> points, List<Line> lines, List<Polygon> polygons, ref List<Point> outPoints, ref List<Line> outLines, ref List<Polygon> outPolygons)
         {
+            if (points.Count <= 2)
+            {
+                outPoints = points;
+                return;
+            }
+            for (int i = 0; i < points.Count; i++)
+            {
+                for (int j = 0; j < points.Count; j++)
+                {
+                    int left = 0, right = 0;
+                    for (int k = 0; k < points.Count; k++)
+                    {
+                        Line line = new Line(points[i], points[j]);
+                        if (k != i && k != j)
+                        {
+                            Enums.TurnType turnTest = HelperMethods.CheckTurn(line, points[k]);
+                            if (turnTest == Enums.TurnType.Left)
+                                left++;
+                            else if (turnTest == Enums.TurnType.Right)
+                                right++;
+
+
+                        }
+                    }
+                    if ((left == 0 && right > 0) || (right == 0 && left > 0) && i != j)
+                    {
+                        if (!outPoints.Contains(points[i]))
+                            outPoints.Add(points[i]);
+                        if (!outPoints.Contains(points[j]))
+                            outPoints.Add(points[j]);
+                    }
+
+                }
+            }
 
         }
-
         public override string ToString()
         {
             return "Convex Hull - Extreme Segments";

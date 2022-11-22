@@ -27631,6 +27631,10 @@ namespace CGAlgorithmsUnitTest
             desiredPoints.Add(new Point(-100, -100));
             convexHullTester.Run(inputPoints, inputLines, inputPolygons, ref outputPoints, ref outputLines, ref outputPolygons);
 
+            for (int i =0; i < outputPoints.Count; i++)
+            {
+                Console.WriteLine(outputPoints[i].X + " " + outputPoints[i].Y);
+            }
             bool success = CompareDesiredWithActual(desiredPoints, outputPoints);
             Assert.IsTrue(success, "Fails in " + convexHullTester.ToString() + ": Case 18 (Triangle)");
             #endregion
@@ -27666,6 +27670,10 @@ namespace CGAlgorithmsUnitTest
             desiredPoints.Add(new Point(-50, 50));
             convexHullTester.Run(inputPoints, inputLines, inputPolygons, ref outputPoints, ref outputLines, ref outputPolygons);
 
+            for (int i =0; i < outputPoints.Count; i++)
+            {
+                Console.WriteLine(outputPoints[i].X + " " + outputPoints[i].Y);
+            }
             bool success = CompareDesiredWithActual(desiredPoints, outputPoints);
             Assert.IsTrue(success, "Fails in " + convexHullTester.ToString() + ": Case 20 (Convex Polygon)");
             #endregion
@@ -27719,9 +27727,14 @@ namespace CGAlgorithmsUnitTest
             desiredPoints.Add(new Point(3, 2));
             desiredPoints.Add(new Point(1, 4));
 
-            convexHullTester.Run(inputPoints, inputLines, inputPolygons, ref outputPoints, ref outputLines, ref outputPolygons);
 
-            bool success = CompareDesiredWithActual(desiredPoints, outputPoints);
+            convexHullTester.Run(inputPoints, inputLines, inputPolygons, ref outputPoints, ref outputLines, ref outputPolygons);
+            for (int i = 0; i < outputPoints.Count; i++)
+            {
+                Console.WriteLine(outputPoints[i].X + " " + outputPoints[i].Y);
+            }
+
+                bool success = CompareDesiredWithActual(desiredPoints, outputPoints);
             Assert.IsTrue(success, "Fails in Extreme Points: Case 3 (triangle)");
             #endregion
         }
