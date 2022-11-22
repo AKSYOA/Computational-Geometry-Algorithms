@@ -46,6 +46,37 @@ namespace CGAlgorithms.Algorithms.ConvexHull
                 }
             }
 
+           outPoints =  deleteOnSegmentPoints(outPoints);
+
+        }
+
+        private List<Point> deleteOnSegmentPoints (List<Point> points){
+
+            for (int i = 0; i < points.Count; i++)
+            {
+                bool isExtreme = true;
+                for (int j = 0; j < points.Count; j++)
+                {
+                    for (int k = 0; k < points.Count; k++)
+                    {
+                        if (points[i] != points[j] && points[i] != points[k])
+                        {
+                            bool isOnSegment = HelperMethods.PointOnSegment(points[i], points[j], points[k]);
+                            if (isOnSegment)
+                            {
+                                points.Remove(points[i]);
+                                isExtreme = false;
+                                break;
+                            }
+                        }
+                    }
+                    if (!isExtreme)
+                        break;
+                }
+                if (!isExtreme)
+                    i--;
+            }
+            return points;
         }
         public override string ToString()
         {
