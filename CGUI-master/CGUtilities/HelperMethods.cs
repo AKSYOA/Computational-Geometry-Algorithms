@@ -48,6 +48,7 @@ namespace CGUtilities
         {
             return a.X * b.Y - a.Y * b.X;
         }
+
         public static bool PointOnRay(Point p, Point a, Point b)
         {
             if (a.Equals(b)) return true;
@@ -56,6 +57,7 @@ namespace CGUtilities
             var w = a.Vector(b).Normalize();
             return q.Equals(w);
         }
+
         public static bool PointOnSegment(Point p, Point a, Point b)
         {
             if (a.Equals(b))
@@ -82,9 +84,11 @@ namespace CGUtilities
             Point b = l.End.Vector(p);
             return HelperMethods.CheckTurn(a, b);
         }
+
         public static Point GetVector(Line l)
         {
             return l.Start.Vector(l.End);
+            
         }
     }
 }
