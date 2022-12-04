@@ -1,0 +1,10 @@
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\bin\Debug\CGUtilitiesUnitTest.dll
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\bin\Debug\CGUtilitiesUnitTest.pdb
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\bin\Debug\CGUtilities.dll
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\bin\Debug\CGUtilities.pdb
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\obj\Debug\CGUtilitiesUnitTest.csprojAssemblyReference.cache
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\obj\Debug\CGUtilitiesUnitTest.csproj.CoreCompileInputs.cache
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\obj\Debug\CGUtilitiesUnitTest.csproj.CopyComplete
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\obj\Debug\CGUtilitiesUnitTest.dll
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\obj\Debug\CGUtilitiesUnitTest.pdb

@@ -1,0 +1,9 @@
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGAlgorithms\bin\Debug\CGAlgorithms.dll
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGAlgorithms\bin\Debug\CGAlgorithms.pdb
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGAlgorithms\bin\Debug\CGUtilities.dll
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGAlgorithms\bin\Debug\CGUtilities.pdb
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGAlgorithms\obj\Debug\CGAlgorithms.csprojAssemblyReference.cache
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGAlgorithms\obj\Debug\CGAlgorithms.csproj.CoreCompileInputs.cache
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGAlgorithms\obj\Debug\CGAlgorithms.csproj.CopyComplete
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGAlgorithms\obj\Debug\CGAlgorithms.dll
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGAlgorithms\obj\Debug\CGAlgorithms.pdb

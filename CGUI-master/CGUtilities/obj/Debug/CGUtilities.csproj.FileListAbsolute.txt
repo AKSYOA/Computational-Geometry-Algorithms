@@ -1,0 +1,6 @@
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilities\bin\Debug\CGUtilities.dll
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilities\bin\Debug\CGUtilities.pdb
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilities\obj\Debug\CGUtilities.csprojAssemblyReference.cache
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilities\obj\Debug\CGUtilities.csproj.CoreCompileInputs.cache
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilities\obj\Debug\CGUtilities.dll
+D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilities\obj\Debug\CGUtilities.pdb
