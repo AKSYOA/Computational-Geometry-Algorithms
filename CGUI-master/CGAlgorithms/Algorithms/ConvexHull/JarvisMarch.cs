@@ -11,7 +11,7 @@ namespace CGAlgorithms.Algorithms.ConvexHull
     {
         public override void Run(List<Point> points, List<Line> lines, List<Polygon> polygons, ref List<Point> outPoints, ref List<Line> outLines, ref List<Polygon> outPolygons)
         {
-            
+
             int numOfPoints = points.Count;
 
             // If Number of points is less than three return points as a Extreme Point.
@@ -21,61 +21,68 @@ namespace CGAlgorithms.Algorithms.ConvexHull
                 return;
             }
 
-            //Get minimum Y 
-            int Ymin = 0;
-            for (int i = 1; i < numOfPoints; i++)  
-                if (points[i].Y < points[Ymin].Y)
-                    Ymin = i;
 
-            // Start point is the Y minimum
-            int start = Ymin;
+            double minY = 10000000, minX = 0;
+            for (int i = 0; i < points.Count; i++)
+                if (points[i].Y < minY) {
+                    minY = points[i].Y;
+                    minX = points[i].X;
+                }
+            
 
-            // Adding start point in Out Points
-            outPoints.Add(points[start]);
-            double x_ = points[start].X;
-            double y_ = points[start].Y;
-            points.RemoveAt(start);
+            Point minPoint = new Point(minX, minY);
+            outPoints.Add(minPoint);
+            Point start = minPoint;
 
-            int idxOfMinPoint = -1;
-            //bool sTrue = false;
+            //Extra point adjacent to the first minimum point
+            Point extraPoint = new Point(minX - 20, minY);
+
+
             while (true)
             {
-                double Theta_min = 360;
+                double largestTheta = 0;
+                double distance = 0;
+                double largestDistance = 0;
+                Point nextPoint = minPoint;
+
                 for (int i = 0; i < points.Count; i++)
                 {
-                    double Dx = points[i].X + x_;
-                    double Dy = points[i].Y + y_;
-                    double Theta = Math.Atan(Dy / Dx) * (180 / Math.PI);
+                    Point minPoint_extraPoint = new Point(minPoint.X - extraPoint.X, minPoint.Y - extraPoint.Y);
+                    Point minPoint_nextPoint = new Point(points[i].X - minPoint.X, points[i].Y - minPoint.Y);
 
+                    // Calculate Dot and Cross Product
+                    double dotProduct = (minPoint_extraPoint.X * minPoint_nextPoint.X) + (minPoint_extraPoint.Y * minPoint_nextPoint.Y);
+                    double crossProdict = HelperMethods.CrossProduct(minPoint_extraPoint, minPoint_nextPoint);
+                   
+                    // Calculate The Angle and the Distance between minPoint_extraPoint and minPoint_nextPoint
+                    double Theta = Math.Atan2(crossProdict, dotProduct);
+                    distance = Math.Sqrt((minPoint.X - points[i].X) + (minPoint.Y - points[i].Y));
+
+                    // if theta is (-ve) -> Convert Theta to (+ve)
                     if (Theta < 0)
-                        Theta = 180 + Theta;
-
-                    if(Theta < Theta_min)
+                        Theta = Theta + (2 * Math.PI);
+                    // Get Largest Theta
+                    if (Theta > largestTheta)
                     {
-                        Theta_min = Theta;
-                        idxOfMinPoint = i;
+                        largestTheta = Theta;
+                        largestDistance = distance;
+                        nextPoint = points[i];
                     }
-                    
-                }
-                x_ = points[idxOfMinPoint].X;
-                y_ = points[idxOfMinPoint].Y;     
-                outPoints.Add(points[idxOfMinPoint]);
-                points.RemoveAt(idxOfMinPoint);
-
-                
-
-                // After Removing Start Point the Indexes are Changed.
-                // So We need to find the new start point.
-                for (int i = 0; i < points.Count; i++)
-                {
-                    if (points[i].X == x_ && points[i].Y == y_)
-                        start = i;
+                    // if We find two point in the same line we shoud take the largest point based on distance
+                    else if (Theta == largestTheta && distance > largestDistance)
+                    {
+                        largestDistance = distance;
+                        nextPoint = points[i];
+                    }
                 }
 
-                if (points.Count <= 0)
+                if (start.X == nextPoint.X && start.Y == nextPoint.Y)
                     break;
-            }
 
+                outPoints.Add(nextPoint);
+                extraPoint = minPoint;
+                minPoint = nextPoint;
+            }
         }
 
         public override string ToString()
@@ -84,3 +91,4 @@ namespace CGAlgorithms.Algorithms.ConvexHull
         }
     }
 }
+
