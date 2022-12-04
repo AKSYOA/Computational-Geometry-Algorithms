@@ -7,4 +7,4 @@
 - ~~Convex Hull Algorithm 2 [Extreme Segments]~~
 - Convex Hull Algorithm 3 [Jarvis March] - Saad
 - Convex Hull Algorithm 4 [Quick Hull] - Omar
-- Convex Hull Algorithm 5 [Graham's Algorithm]
+- Convex Hull Algorithm 5 [Graham's Algorithm] - Ahmed
