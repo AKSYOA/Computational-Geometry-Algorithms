@@ -1,0 +1,5 @@
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\.vs\CGPackage\v16\lut\0\b\CGUtilities\bin\Debug\CGUtilities.dll
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\.vs\CGPackage\v16\lut\0\i\CGUtilities\Debug\CGUtilities.csproj.AssemblyReference.cache
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\.vs\CGPackage\v16\lut\0\i\CGUtilities\Debug\CGUtilities.csproj.CoreCompileInputs.cache
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\.vs\CGPackage\v16\lut\0\i\CGUtilities\Debug\CGUtilities.csproj.CopyComplete
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\.vs\CGPackage\v16\lut\0\i\CGUtilities\Debug\CGUtilities.dll
