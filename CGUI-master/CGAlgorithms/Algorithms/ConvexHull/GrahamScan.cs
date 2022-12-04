@@ -20,7 +20,8 @@ namespace CGAlgorithms.Algorithms.ConvexHull
             getAngles(minY, points);
             angles.Sort((x,y) => x.Value.CompareTo(y.Value));
 
-            l.Push(points[angles[0].Key]);
+            if(angles.Count != 0)
+                l.Push(points[angles[0].Key]);
             for(int i = 1; i < angles.Count;)
             {
                 Point p = l.Peek();
