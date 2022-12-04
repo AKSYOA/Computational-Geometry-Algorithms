@@ -13,16 +13,20 @@ namespace CGAlgorithms.Algorithms.ConvexHull
         List < KeyValuePair<int, double> > angles = new List< KeyValuePair<int, double> >(); // pointIndex, Angle
         public override void Run(List<Point> points, List<Line> lines, List<Polygon> polygons, ref List<Point> outPoints, ref List<Line> outLines, ref List<Polygon> outPolygons)
         {
+            points.Sort((p1,p2) => p1.X.CompareTo(p2.X)); // to get lower X and Y, to avoid points on segments
+
             Point minY = findMinimumY(points);
             l.Push(minY);
             points.Remove(minY);
 
             getAngles(minY, points);
-            angles.Sort((x,y) => x.Value.CompareTo(y.Value));
+            angles.Sort(Compare);
+            printAngles();
 
             if(angles.Count != 0)
                 l.Push(points[angles[0].Key]);
-            for(int i = 1; i < angles.Count;)
+
+            for(int i = 1; i < angles.Count && l.Count >=2;)
             {
                 Point p = l.Peek();
                 Point p_ = Previous();
@@ -30,6 +34,11 @@ namespace CGAlgorithms.Algorithms.ConvexHull
                 Enums.TurnType turnTest = HelperMethods.CheckTurn(new Line(p_, p), points[angles[i].Key]);
                 if(turnTest == Enums.TurnType.Left)
                 {
+                    l.Push(points[angles[i].Key]);
+                    i++;
+                }else if (turnTest == Enums.TurnType.Colinear)
+                {
+                    l.Pop();
                     l.Push(points[angles[i].Key]);
                     i++;
                 }
@@ -56,7 +65,7 @@ namespace CGAlgorithms.Algorithms.ConvexHull
 
             for(int i = 0; i < points.Count; i++)
             {
-                if (points[i].Y <= points[minimumYIdx].Y)
+                if (points[i].Y < points[minimumYIdx].Y)
                     minimumYIdx = i;           
             }
 
@@ -78,24 +87,7 @@ namespace CGAlgorithms.Algorithms.ConvexHull
                 angles.Add(new KeyValuePair<int, double>(i, angle));
             }
           
-        }
-
-        public void printAngles()
-        {
-            foreach(var i in angles)
-            {
-                Console.WriteLine(i.Key + " " + i.Value);
-            }
-        }
-
-        public void printStack()
-        {
-            while(l.Count != 0)
-            {
-                Point p = l.Pop();
-                Console.WriteLine(p.X + " " + p.Y);
-            }
-        }
+        }    
 
         public void getOutput(ref List<Point> outPoints)
         {
@@ -104,6 +96,30 @@ namespace CGAlgorithms.Algorithms.ConvexHull
                 outPoints.Add(l.Pop());
             }
         }
+        static int Compare(KeyValuePair<int, double> a, KeyValuePair<int, double> b)
+        {
+            if (a.Value == b.Value) return a.Key.CompareTo(b.Key);
+            return a.Value.CompareTo(b.Value);
+        }
+
+        #region For Testing
+        public void printStack()
+        {
+            while (l.Count != 0)
+            {
+                Point p = l.Pop();
+                Console.WriteLine(p.X + " " + p.Y);
+            }
+        }
+
+        public void printAngles()
+        {
+            foreach (var i in angles)
+            {
+                Console.WriteLine(i.Key + " " + i.Value);
+            }
+        }
+        #endregion
 
         public override string ToString()
         {

@@ -27605,6 +27605,10 @@ namespace CGAlgorithmsUnitTest
 
             convexHullTester.Run(inputPoints, inputLines, inputPolygons, ref outputPoints, ref outputLines, ref outputPolygons);
 
+            for (int i = 0; i < outputPoints.Count; i++)
+            {
+                Console.WriteLine(outputPoints[i].X + " " + outputPoints[i].Y);
+            }
             bool success = CompareDesiredWithActual(desiredPoints, outputPoints);
             Assert.IsTrue(success, "Fails in " + convexHullTester.ToString() + ": Case 15 (10000 Point)");
             #endregion
