@@ -8,3 +8,13 @@ D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\obj
 D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\obj\Debug\CGUtilitiesUnitTest.csproj.CopyComplete
 D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\obj\Debug\CGUtilitiesUnitTest.dll
 D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilitiesUnitTest\obj\Debug\CGUtilitiesUnitTest.pdb
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilitiesUnitTest\bin\Debug\CGUtilitiesUnitTest.dll
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilitiesUnitTest\bin\Debug\CGUtilitiesUnitTest.pdb
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilitiesUnitTest\bin\Debug\CGUtilities.dll
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilitiesUnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilitiesUnitTest\bin\Debug\CGUtilities.pdb
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilitiesUnitTest\obj\Debug\CGUtilitiesUnitTest.csproj.AssemblyReference.cache
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilitiesUnitTest\obj\Debug\CGUtilitiesUnitTest.csproj.CoreCompileInputs.cache
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilitiesUnitTest\obj\Debug\CGUtilitiesUnitTest.csproj.CopyComplete
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilitiesUnitTest\obj\Debug\CGUtilitiesUnitTest.dll
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilitiesUnitTest\obj\Debug\CGUtilitiesUnitTest.pdb
