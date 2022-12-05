@@ -25,3 +25,9 @@ CGUtilitiesUnitTest/obj/*
 *.testlog
 
 *.suo
+*.user
+_ReSharper.*
+bin
+obj
+packages
+*.dll
