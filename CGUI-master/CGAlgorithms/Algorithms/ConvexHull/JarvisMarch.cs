@@ -53,22 +53,24 @@ namespace CGAlgorithms.Algorithms.ConvexHull
                     // Calculate Dot and Cross Product
                     double dotProduct = DotProduct(minPoint_extraPoint, minPoint_nextPoint);
                     double crossProdict = HelperMethods.CrossProduct(minPoint_extraPoint, minPoint_nextPoint);
-                   
-                    // Calculate The Angle and the Distance between minPoint_extraPoint and minPoint_nextPoint
-                    double Theta = Math.Atan2(crossProdict, dotProduct);
+
+                    // Calculate the Distance and the Theta between minPoint_extraPoint and minPoint_nextPoint
                     distance = Distance(minPoint, points[i]);
+                    double Theta = TheTa(crossProdict, dotProduct);
 
                     // if theta is (-ve) -> Convert Theta to (+ve)
                     if (Theta < 0)
                         Theta = Theta + (2 * Math.PI);
-                    // Get Largest Theta
+
+                    //nextPoint = GetNextPoint(Theta, largestTheta, distance, largestDistance, points[i]);
+                    // Get Next Point based on Largest Theta
                     if (Theta > largestTheta)
                     {
                         largestTheta = Theta;
                         largestDistance = distance;
                         nextPoint = points[i];
                     }
-                    // if We find two point in the same line we shoud take the largest point based on distance
+                    // Get Largest Point based on the Largest Theta and  the largest distance
                     else if (Theta == largestTheta && distance > largestDistance)
                     {
                         largestDistance = distance;
@@ -85,15 +87,46 @@ namespace CGAlgorithms.Algorithms.ConvexHull
             }
         }
 
+        // Get Distance
         private double Distance(Point p1, Point p2)
         {
             return Math.Sqrt((p1.X - p2.X) + (p1.Y - p2.Y));
         }
-
+        // Get Theat 
+        private double TheTa(double cross, double dot)
+        {
+            return Math.Atan2(cross, dot);
+        }
+        // Get Dot Product
         private double DotProduct(Point p1, Point p2)
         {
             return (p1.X * p2.X) + (p1.Y * p2.Y);
         }
+
+
+        // Get Next Point 
+        /*
+        private Point  GetNextPoint(double Theta, double largestTheta, double distance, double largeDist, Point point)
+        {
+            Point nextPoint = point;
+            if (Theta > largestTheta)
+            {
+                largestTheta = Theta;
+                largeDist = distance;
+                nextPoint = point;
+            }
+            // if We find two point in the same line we shoud take the largest point based on distance
+            else if (Theta == largestTheta && distance > largeDist)
+            {
+                largeDist = distance;
+                nextPoint = point;
+            }
+
+            return nextPoint;
+        }
+        
+        */
+
 
         public override string ToString()
         {
