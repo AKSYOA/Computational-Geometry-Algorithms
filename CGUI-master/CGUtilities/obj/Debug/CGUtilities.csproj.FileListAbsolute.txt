@@ -4,3 +4,9 @@ D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilities\obj\Debug\C
 D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilities\obj\Debug\CGUtilities.csproj.CoreCompileInputs.cache
 D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilities\obj\Debug\CGUtilities.dll
 D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUtilities\obj\Debug\CGUtilities.pdb
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilities\bin\Debug\CGUtilities.dll
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilities\bin\Debug\CGUtilities.pdb
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilities\obj\Debug\CGUtilities.csproj.AssemblyReference.cache
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilities\obj\Debug\CGUtilities.csproj.CoreCompileInputs.cache
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilities\obj\Debug\CGUtilities.dll
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUtilities\obj\Debug\CGUtilities.pdb

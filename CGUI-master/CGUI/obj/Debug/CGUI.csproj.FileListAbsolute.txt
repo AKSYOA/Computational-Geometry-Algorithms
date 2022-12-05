@@ -23,3 +23,28 @@ D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUI\obj\Debug\CGUI.csp
 D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUI\obj\Debug\CGUI.csproj.CopyComplete
 D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUI\obj\Debug\CGUI.exe
 D:\FCIS\4thyear\Computational Robotics\Tasks\CGUI-master\CGUI\obj\Debug\CGUI.pdb
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\bin\Debug\CGUI.exe.config
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\bin\Debug\CGUI.exe
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\bin\Debug\CGUI.pdb
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\bin\Debug\CGAlgorithms.dll
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\bin\Debug\CGUtilities.dll
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\bin\Debug\CGAlgorithms.pdb
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\bin\Debug\CGUtilities.pdb
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\CGUI.csproj.AssemblyReference.cache
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\Styles\UIStyles.baml
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\Styles\DrawingStyle.baml
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\Styles\ResultStyle.baml
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\App.baml
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\MainWindow.g.cs
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\App.g.cs
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\CGUI_MarkupCompile.cache
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\CGUI_MarkupCompile.lref
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\MainWindow.baml
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\CGUI.g.resources
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\CGUI.Properties.Resources.resources
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\CGUI.csproj.GenerateResource.cache
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\CGUI.csproj.CoreCompileInputs.cache
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\CGUI.csproj.CopyComplete
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\CGUI.exe
+E:\7th\New 7th\Computational Geumetry\Task\Geometary-Tasks\CGUI-master\CGUI\obj\Debug\CGUI.pdb
