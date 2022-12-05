@@ -51,7 +51,7 @@ namespace CGAlgorithms.Algorithms.ConvexHull
                     Point minPoint_nextPoint = new Point(points[i].X - minPoint.X, points[i].Y - minPoint.Y);
 
                     // Calculate Dot and Cross Product
-                    double dotProduct = DotProduct(minPoint_extraPoint, minPoint_nextPoint);
+                    double dotProduct = HelperMethods.DotProduct(minPoint_extraPoint, minPoint_nextPoint);
                     double crossProdict = HelperMethods.CrossProduct(minPoint_extraPoint, minPoint_nextPoint);
 
                     // Calculate the Distance and the Theta between minPoint_extraPoint and minPoint_nextPoint
@@ -97,11 +97,7 @@ namespace CGAlgorithms.Algorithms.ConvexHull
         {
             return Math.Atan2(cross, dot);
         }
-        // Get Dot Product
-        private double DotProduct(Point p1, Point p2)
-        {
-            return (p1.X * p2.X) + (p1.Y * p2.Y);
-        }
+
 
 
         // Get Next Point 
