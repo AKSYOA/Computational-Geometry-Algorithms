@@ -1,9 +1,6 @@
 ﻿using CGUtilities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CGAlgorithms.Algorithms.ConvexHull
 {
@@ -12,7 +9,141 @@ namespace CGAlgorithms.Algorithms.ConvexHull
         public override void Run(List<Point> points, List<Line> lines, List<Polygon> polygons, ref List<Point> outPoints, ref List<Line> outLines, ref List<Polygon> outPolygons)
         {
 
+            points = points.OrderBy(point => point.X).ThenBy(point => point.Y).ToList();
+            outPoints = new List<Point>();
+
+            List<Point> convexHull = Divide(points);
+
+            for (int i = 0; i < convexHull.Count; ++i)
+                outPoints.Add(convexHull[i]);
+
         }
+        public List<Point> Divide(List<Point> divisiblePoints)
+        {
+
+            if (divisiblePoints.Count <= 1)
+            {
+                return divisiblePoints;
+            }
+
+            List<Point> leftPoints = new List<Point>();
+            List<Point> rightPoints = new List<Point>();
+
+            for (int i = 0; i < divisiblePoints.Count / 2; i++)
+            {
+                leftPoints.Add(divisiblePoints[i]);
+            }
+
+            for (int i = divisiblePoints.Count / 2; i < divisiblePoints.Count; i++)
+            {
+                rightPoints.Add(divisiblePoints[i]);
+            }
+
+            List<Point> convexHull = Combine(Divide(leftPoints), Divide(rightPoints));
+
+            return convexHull;
+        }
+        public List<Point> Combine(List<Point> leftPoints, List<Point> rightPoints)
+        {
+
+            int leftMostIndex = 0, rightMostIndex = 0, Lcount = leftPoints.Count, Rcount = rightPoints.Count;
+
+            for (int i = 1; i < Lcount; i++)
+            {
+                if (leftPoints[i].X > leftPoints[rightMostIndex].X ||
+                    leftPoints[i].X == leftPoints[rightMostIndex].X && leftPoints[i].Y > leftPoints[rightMostIndex].Y)
+
+                    rightMostIndex = i;
+            }
+
+            for (int i = 1; i < Rcount; i++)
+            {
+                if (rightPoints[i].X < rightPoints[leftMostIndex].X ||
+                    rightPoints[i].X == rightPoints[leftMostIndex].X && rightPoints[i].Y < rightPoints[leftMostIndex].Y)
+
+                    leftMostIndex = i;
+            }
+
+            int upTanA = rightMostIndex;
+            int upTanB = leftMostIndex;
+            bool found = false;
+
+
+            while (!found)
+            {
+                found = true;
+
+                while (CGUtilities.HelperMethods.CheckTurn(new Line(rightPoints[upTanB].X, rightPoints[upTanB].Y, leftPoints[upTanA].X, leftPoints[upTanA].Y),
+                          leftPoints[(upTanA + 1) % Lcount]) == Enums.TurnType.Right)
+                {
+                    upTanA = (upTanA + 1) % Lcount;
+                    found = false;
+                }
+
+                while (CGUtilities.HelperMethods.CheckTurn(new Line(leftPoints[upTanA].X, leftPoints[upTanA].Y, rightPoints[upTanB].X, rightPoints[upTanB].Y),
+                    rightPoints[(Rcount + upTanB - 1) % Rcount]) == Enums.TurnType.Left)
+                {
+                    upTanB = (Rcount + upTanB - 1) % Rcount;
+                    found = false;
+
+                }
+            }
+
+            int lowTanA = rightMostIndex;
+            int lowTanB = leftMostIndex;
+            found = false;
+
+            while (!found)
+            {
+                found = true;
+                while (CGUtilities.HelperMethods.CheckTurn(new Line(rightPoints[lowTanB].X, rightPoints[lowTanB].Y, leftPoints[lowTanA].X, leftPoints[lowTanA].Y)
+                    , leftPoints[(lowTanA + Lcount - 1) % Lcount]) == Enums.TurnType.Left)
+                {
+                    lowTanA = (lowTanA + Lcount - 1) % Lcount;
+                    found = false;
+                }
+
+                while (CGUtilities.HelperMethods.CheckTurn(new Line(leftPoints[lowTanA].X, leftPoints[lowTanA].Y, rightPoints[lowTanB].X, rightPoints[lowTanB].Y),
+                    rightPoints[(lowTanB + 1) % Rcount]) == Enums.TurnType.Right)
+                {
+                    lowTanB = (lowTanB + 1) % Rcount;
+                    found = false;
+
+                }
+            }
+
+            List<Point> outPoints = new List<Point>();
+
+            outPoints.Add(leftPoints[upTanA]);
+
+            while (upTanA != lowTanA)
+            {
+                upTanA = (upTanA + 1) % Lcount;
+
+
+                if (!outPoints.Contains(leftPoints[upTanA]))
+                {
+                    outPoints.Add(leftPoints[upTanA]);
+
+                }
+            }
+
+
+            outPoints.Add(rightPoints[lowTanB]);
+
+            while (lowTanB != upTanB)
+            {
+                lowTanB = (lowTanB + 1) % Rcount;
+
+                if (!outPoints.Contains(rightPoints[lowTanB]))
+
+                    outPoints.Add(rightPoints[lowTanB]);
+
+            }
+            return outPoints;
+        }
+
+
 
         public override string ToString()
         {

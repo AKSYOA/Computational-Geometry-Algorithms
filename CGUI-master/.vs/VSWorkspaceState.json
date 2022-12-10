@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\CGAlgorithms",
+    "\\CGAlgorithms\\Algorithms",
+    "\\CGAlgorithms\\Algorithms\\ConvexHull",
+    "\\CGAlgorithms\\Algorithms\\PolygonTriangulation",
+    "\\CGAlgorithms\\Algorithms\\SegmentIntersection",
+    "\\CGUtilities"
+  ],
+  "SelectedNode": "\\CGAlgorithms\\Algorithms\\ConvexHull\\DivideAndConquer.cs",
+  "PreviewInSolutionExplorer": false
+}
