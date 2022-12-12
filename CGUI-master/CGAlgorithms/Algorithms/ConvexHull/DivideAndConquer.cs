@@ -10,12 +10,8 @@ namespace CGAlgorithms.Algorithms.ConvexHull
         {
 
             points = points.OrderBy(point => point.X).ThenBy(point => point.Y).ToList();
-            outPoints = new List<Point>();
+            outPoints = Divide(points);
 
-            List<Point> convexHull = Divide(points);
-
-            for (int i = 0; i < convexHull.Count; ++i)
-                outPoints.Add(convexHull[i]);
 
         }
         public List<Point> Divide(List<Point> divisiblePoints)
@@ -48,6 +44,7 @@ namespace CGAlgorithms.Algorithms.ConvexHull
 
             int leftMostIndex = 0, rightMostIndex = 0, Lcount = leftPoints.Count, Rcount = rightPoints.Count;
 
+            //detecting leftmost and righmost points of divided points
             for (int i = 1; i < Lcount; i++)
             {
                 if (leftPoints[i].X > leftPoints[rightMostIndex].X ||
@@ -64,11 +61,12 @@ namespace CGAlgorithms.Algorithms.ConvexHull
                     leftMostIndex = i;
             }
 
+            //upper tangent setup
             int upTanA = rightMostIndex;
             int upTanB = leftMostIndex;
             bool found = false;
 
-
+            //changing the tangent points until both of them make a line doesn't cross the polygon 
             while (!found)
             {
                 found = true;
@@ -79,6 +77,12 @@ namespace CGAlgorithms.Algorithms.ConvexHull
                     upTanA = (upTanA + 1) % Lcount;
                     found = false;
                 }
+                //handling special case if the 3 points marked are colinear
+                if ( (CGUtilities.HelperMethods.CheckTurn(new Line(rightPoints[upTanB].X, rightPoints[upTanB].Y, leftPoints[upTanA].X, leftPoints[upTanA].Y),
+                             leftPoints[(upTanA + 1) % Lcount]) == Enums.TurnType.Colinear))
+                {
+                    upTanA = (upTanA + 1) % Lcount;
+                }
 
                 while (CGUtilities.HelperMethods.CheckTurn(new Line(leftPoints[upTanA].X, leftPoints[upTanA].Y, rightPoints[upTanB].X, rightPoints[upTanB].Y),
                     rightPoints[(Rcount + upTanB - 1) % Rcount]) == Enums.TurnType.Left)
@@ -87,12 +91,20 @@ namespace CGAlgorithms.Algorithms.ConvexHull
                     found = false;
 
                 }
+
+                if ( (CGUtilities.HelperMethods.CheckTurn(new Line(leftPoints[upTanA].X, leftPoints[upTanA].Y, rightPoints[upTanB].X, rightPoints[upTanB].Y),
+                    rightPoints[(upTanB - 1 + Rcount) % Rcount]) == Enums.TurnType.Colinear))
+                {
+                    upTanB = (upTanB - 1 + Rcount) % Rcount;
+                }
             }
 
+            //lower tangent setup
             int lowTanA = rightMostIndex;
             int lowTanB = leftMostIndex;
             found = false;
 
+            //same for lower tangent
             while (!found)
             {
                 found = true;
@@ -103,6 +115,12 @@ namespace CGAlgorithms.Algorithms.ConvexHull
                     found = false;
                 }
 
+                if ( (CGUtilities.HelperMethods.CheckTurn(new Line(rightPoints[lowTanB].X, rightPoints[lowTanB].Y, leftPoints[lowTanA].X, leftPoints[lowTanA].Y),
+                                leftPoints[(lowTanA + Lcount - 1) % Lcount]) == Enums.TurnType.Colinear))
+                {
+                    lowTanA = (lowTanA + Lcount - 1) % Lcount;
+                }
+
                 while (CGUtilities.HelperMethods.CheckTurn(new Line(leftPoints[lowTanA].X, leftPoints[lowTanA].Y, rightPoints[lowTanB].X, rightPoints[lowTanB].Y),
                     rightPoints[(lowTanB + 1) % Rcount]) == Enums.TurnType.Right)
                 {
@@ -110,37 +128,44 @@ namespace CGAlgorithms.Algorithms.ConvexHull
                     found = false;
 
                 }
+
+                if ((CGUtilities.HelperMethods.CheckTurn(new Line(leftPoints[lowTanA].X, leftPoints[lowTanA].Y, rightPoints[lowTanB].X, rightPoints[lowTanB].Y),
+                    rightPoints[(lowTanB + 1) % Rcount]) == Enums.TurnType.Colinear))
+                {
+                    lowTanB = (lowTanB + 1) % Rcount;
+                }
             }
 
-            List<Point> outPoints = new List<Point>();
+            List<Point> convexHull = new List<Point>();
 
-            outPoints.Add(leftPoints[upTanA]);
+            //brute force algorithm to gather points to form convex hull 
+
+            convexHull.Add(leftPoints[upTanA]);
 
             while (upTanA != lowTanA)
             {
                 upTanA = (upTanA + 1) % Lcount;
 
 
-                if (!outPoints.Contains(leftPoints[upTanA]))
-                {
-                    outPoints.Add(leftPoints[upTanA]);
+                if (!convexHull.Contains(leftPoints[upTanA]))
 
-                }
+                    convexHull.Add(leftPoints[upTanA]);
+
             }
 
 
-            outPoints.Add(rightPoints[lowTanB]);
+            convexHull.Add(rightPoints[lowTanB]);
 
             while (lowTanB != upTanB)
             {
                 lowTanB = (lowTanB + 1) % Rcount;
 
-                if (!outPoints.Contains(rightPoints[lowTanB]))
+                if (!convexHull.Contains(rightPoints[lowTanB]))
 
-                    outPoints.Add(rightPoints[lowTanB]);
+                    convexHull.Add(rightPoints[lowTanB]);
 
             }
-            return outPoints;
+            return convexHull;
         }
 
 
