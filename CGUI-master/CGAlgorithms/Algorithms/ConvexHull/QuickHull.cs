@@ -1,4 +1,4 @@
-﻿using CGUtilities;
+using CGUtilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,72 +9,64 @@ namespace CGAlgorithms.Algorithms.ConvexHull
 {
     public class QuickHull : Algorithm
     {
-        public double dist(Point first, Point second, Point third)
+        public List<Point> quickHull(List<Point> points, Point min_x, Point max_x, string direction)
         {
-            return Math.Abs((third.Y - first.Y) * (second.X - first.X) -
-                       (second.Y - first.Y) * (third.X - first.X));
-        }
-        public List<Point> quickHull(List<Point> points, Point min_x, Point max_x, string ss)
-        {
-            var s = Enums.TurnType.Left;
-            if (ss == "Right")
+            var segment = Enums.TurnType.Left;
+            if (direction == "Right")
             {
-                s = Enums.TurnType.Right;
+                segment = Enums.TurnType.Right;
             }
             else
             {
-                s = Enums.TurnType.Left;
+                segment = Enums.TurnType.Left;
             }
             int index = -1;
             double max = -1;
             List<Point> point = new List<Point>();
             if (points.Count == 0)
-                return ans;
-            for (int i = 0; i < a.Count; i++)
+                return point;
+            for (int i = 0; i < points.Count; i++)
             {
-                double x = dist(min_x, max_x, a[i]);
-                if (CGUtilities.HelperMethods.CheckTurn(new Line(min_x.X, min_x.Y, max_x.X, max_x.Y), a[i]) == s && x > max)
+                double x = distence(min_x, max_x, points[i]);
+                if (CGUtilities.HelperMethods.CheckTurn(new Line(min_x.X, min_x.Y, max_x.X, max_x.Y), points[i]) == segment && x > max)
                 {
-                    ind = i;
+                    index = i;
                     max = x;
                 }
             }
-            if (ind == -1)
+            if (index == -1)
             {
-                ans.Add(min_x);
-                ans.Add(max_x);
+                point.Add(min_x);
+                point.Add(max_x);
 
-                return ans;
+                return point;
             }
-
             List<Point> p1, p2;
-            if (CGUtilities.HelperMethods.CheckTurn(new Line(a[ind].X, a[ind].Y, min_x.X, min_x.Y), max_x) ==
+            if (CGUtilities.HelperMethods.CheckTurn(new Line(points[index].X, points[index].Y, min_x.X, min_x.Y), max_x) ==
                 Enums.TurnType.Right)
             {
-                p1 = quickHull(a, a[ind], min_x, "Left");
+                p1 = quickHull(points, points[index], min_x, "Left");
+            }
+            else
+            {
+                p1 = quickHull(points, points[index], min_x, "Right");
+
+            }
+
+            if (CGUtilities.HelperMethods.CheckTurn(new Line(points[index].X, points[index].Y, max_x.X, max_x.Y), min_x) ==
+                Enums.TurnType.Right)
+            {
+                p2 = quickHull(points, points[index], max_x, "Left");
 
             }
             else
             {
-                p1 = quickHull(a, a[ind], min_x, "Right");
+                p2 = quickHull(points, points[index], max_x, "Right");
 
             }
-
-            if (CGUtilities.HelperMethods.CheckTurn(new Line(a[ind].X, a[ind].Y, max_x.X, max_x.Y), min_x) ==
-                Enums.TurnType.Right)
-            {
-                p2 = quickHull(a, a[ind], max_x, "Left");
-
-            }
-            else
-            {
-                p2 = quickHull(a, a[ind], max_x, "Right");
-
-            }
-            for (int i = 0; i < p2.Count; ++i)
+            for (int i = 0; i < p2.Count; i++)
                 p1.Add(p2[i]);
             return p1;
-
         }
         public override void Run(List<Point> points, List<Line> lines, List<Polygon> polygons, ref List<Point> outPoints, ref List<Line> outLines, ref List<Polygon> outPolygons)
         {
@@ -89,7 +81,7 @@ namespace CGAlgorithms.Algorithms.ConvexHull
             }
             List<Point> right = quickHull(points, min_x, max_x, "Right");
             List<Point> left = quickHull(points, min_x, max_x, "Left");
-            for (int i = 0; i < left.Count; ++i)
+            for (int i = 0; i < left.Count; i++)
                 right.Add(left[i]);
 
             for (int i = 0; i < right.Count; i++)
@@ -98,7 +90,11 @@ namespace CGAlgorithms.Algorithms.ConvexHull
                     outPoints.Add(right[i]);
             }
         }
-
+        public double distence(Point first, Point second, Point third)
+        {
+            return Math.Abs((third.Y - first.Y) * (second.X - first.X) -
+                       (second.Y - first.Y) * (third.X - first.X));
+        }
         public override string ToString()
         {
             return "Convex Hull - Quick Hull";
